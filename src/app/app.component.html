@@ -1,20 +1,51 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
-  <h1>
+  <h1 class="ele">
     Welcome to {{ title }}!
   </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<el-button class="ele" (click)="test()" type="primary">主要按钮</el-button>
+<hr/>
+-----------------------------------树形--------------------------------
+<el-tree [model]="data"></el-tree>
+-----------------------------------可选树形-----------------------------
+<el-tree [model]="data" [show-checkbox]="true"></el-tree>
+-----------------------------------分页--------------------------------
+<div class="pagination-demo">
+  <div class="block">
+    <el-pagination [model]="page" (modelChange)="getPage($event)" [page-size]="30" [total]="150"
+                   [layout]="['prev', 'pager', 'next','size','jumper','total']">
+      <!--[page-count]和total只能写一个  pageCount*pageSize=总条数 以及   'prev', 'pager', 'next','size','jumper','total'这是可选参数-->
+    </el-pagination>
+  </div>
+</div>
+---------------------------------幻灯片-------------------------------
+<el-carousel height="150px">
+  <el-carousel-item *ngFor="let item of ['第一个', '第二个', '第三个']; let i = index"
+                    [label]="'label' + i">
+    <div class="small">
+      <h3>{{item}}</h3>
+    </div>
+  </el-carousel-item>
+</el-carousel>
+------------------------------------手风琴-----------------------------
+<el-collapse [model]="[1]" [accordion]="true">
+  <el-collapse-item label="一致性 Consistency" value="1">
+    <div>与现实生活一致：与现实生活的流程、逻辑保持一致，遵循用户习惯的语言和概念；</div>
+    <div>在界面中一致：所有的元素和结构需保持一致，比如：设计样式、图标和文本、元素的位置等。</div>
+  </el-collapse-item>
+  <el-collapse-item label="反馈 Feedback" value="2">
+    <div>控制反馈：通过界面样式和交互动效让用户可以清晰的感知自己的操作；</div>
+    <div>页面反馈：操作后，通过页面元素的变化清晰地展现当前状态。</div>
+  </el-collapse-item>
+  <el-collapse-item label="效率 Efficiency" value="3">
+    <div>简化流程：设计简洁直观的操作流程；</div>
+    <div>清晰明确：语言表达清晰且表意明确，让用户快速理解进而作出决策；</div>
+    <div>帮助用户识别：界面简单直白，让用户快速识别而非回忆，减少用户记忆负担。</div>
+  </el-collapse-item>
+  <el-collapse-item label="可控 Controllability" value="4">
+    <div>用户决策：根据场景可给予用户操作建议或安全提示，但不能代替用户进行决策；</div>
+    <div>结果可控：用户可以自由的进行操作，包括撤销、回退和终止当前操作等。</div>
+  </el-collapse-item>
+</el-collapse>
 
