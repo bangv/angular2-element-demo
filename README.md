@@ -1,3 +1,6 @@
+angular2-element链接：https://element-angular.faas.ele.me/notice/loading
+
+
 # AngularElement
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.3.
