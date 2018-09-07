@@ -48,4 +48,38 @@
     <div>结果可控：用户可以自由的进行操作，包括撤销、回退和终止当前操作等。</div>
   </el-collapse-item>
 </el-collapse>
+-------------------------------------modal-----------------------------------
+<div class="box-card" #card>
+
+  <el-button (click)="card.toggle = true">自定义标题</el-button>
+  <el-dialog [title]="'扬州'" [(visible)]="card.toggle">
+    <ng-template #title>
+      <span class="el-icon-warning"></span>
+      <span>自定义的标题</span>
+    </ng-template>
+    <span>一个平均寿命很高的城市。</span>
+  </el-dialog>
+
+  <el-button (click)="card.toggle2 = true">自定义尾部</el-button>
+  <el-dialog width="100px" [(visible)]="card.toggle2">
+    <ng-template #title>
+      <span>朗诵</span>
+    </ng-template>
+    <span>这篇葛底斯堡演讲朗诵的很好。</span>
+    <ng-template #footer>
+      <el-button (click)="card.toggle2 = false">是的</el-button>
+    </ng-template>
+  </el-dialog>
+</div>
+<div class="box-card" #cards>
+  <el-button (click)="cards.toggle = true">回调函数</el-button>
+
+  <el-dialog [show-close]="false" [title]="'扬州'" [(visible)]="cards.toggle"
+             [before-close]="handle">
+    <span>一个平均寿命很高的城市。</span>
+  </el-dialog>
+</div>
+<el-date-picker (modelChange)="handles($event)"
+                [format]="'yyyy年MM月-dd日'">
+</el-date-picker>
 

@@ -35,9 +35,18 @@ export class AppComponent {
   }, {
     label: '一级 3',
   }]
-  page: any=1 ;
-  getPage(data){
+  page: any = 1;
+
+  getPage(data) {
     this.page = data
     console.log(data)
+  }
+
+  handle(dones){
+    console.log('modal has closed')
+    dones()
+  }
+  handles(value){
+    alert(value)
   }
 }
